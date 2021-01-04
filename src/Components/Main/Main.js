@@ -1,14 +1,14 @@
 import React from "react";
 //Components 
-import Home from '../../../pages/Home';
-import BookList from '../../../pages/BookList';
-import MyList from '../../../pages/MyList';
-import Read from '../../../pages/Read';
-import Favorites from '../../../pages/Favorites';
+import Home from '../../pages/Home';
+import BookList from '../../pages/BookList';
+import MyList from '../../pages/MyList';
+import Read from '../../pages/Read';
+import Favorites from '../../pages/Favorites';
 //Dependencies
 import { Switch, Route } from "react-router-dom";
 
-const Main = () => {
+const Main = () => (
     <div>
         <Switch>
             <Route exact path="/" component={Home} />
@@ -18,6 +18,6 @@ const Main = () => {
             <Route exact path="/favorites" component={Favorites} />
         </Switch>
     </div>
-}
+);
 
 export default Main;
