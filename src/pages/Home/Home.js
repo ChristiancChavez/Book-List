@@ -1,11 +1,9 @@
 import React from 'react';
 //Components
-
+import SearchBook from './../../Components/SearchBook/SearchBook';
 
 const Home = () => (
-    <div>
-        ADD YOUR BOOK
-    </div>
+    <SearchBook />
 );
 
 export default Home;
