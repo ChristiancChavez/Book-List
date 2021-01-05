@@ -1,15 +1,15 @@
 import React from 'react';
 //Components
 import OptionNavBar from './../OptionNavBar/OptionNavBar';
-
-const { uuid } = require('uuidv4');
+//Dependencies
+const { v4: uuid_v4 } = require('uuid');
 
 const OPTIONS_NAV = [ 
-    {category:'Add Book', id:uuid(), route:'/home'},
-    {category:'My List', id:uuid(), route:'/myList'},
-    {category:'Read', id:uuid(), route:'/read'},
-    {category:'Favorites', id:uuid(), route:'/favorites'},
-    {category:'Book List', id:uuid(), route:'/bookList'}, 
+    {category:'Add Book', id:uuid_v4(), route:'/home'},
+    {category:'My List', id:uuid_v4(), route:'/myList'},
+    {category:'Read', id:uuid_v4(), route:'/read'},
+    {category:'Favorites', id:uuid_v4(), route:'/favorites'},
+    {category:'Book List', id:uuid_v4(), route:'/bookList'}, 
 ];
 
 const NavBar = () => (
