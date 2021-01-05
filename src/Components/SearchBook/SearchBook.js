@@ -5,11 +5,13 @@ import { BookListContext } from '../../context/BookListContext';
 const SearchBook = () => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState(''); 
-    const { bookList, addBook } = useContext(BookListContext);
+    const { bookList, dispatch } = useContext(BookListContext);
 
     const updateBookList = (e) => {
         e.preventDefault();
-        addBook(title, author);
+        dispatch({ type:'ADD_BOOK', book: {
+            title, author
+        } });
         setTitle('');
         setAuthor('');
     }

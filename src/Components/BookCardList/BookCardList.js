@@ -4,7 +4,7 @@ import { BookListContext } from './../../context/BookListContext';
 
 const BookCardList = ({ book, author, id }) => {
 
-    const { removeBook } = useContext(BookListContext)
+    const { dispatch } = useContext(BookListContext)
 
     return (
         <div>
@@ -15,7 +15,7 @@ const BookCardList = ({ book, author, id }) => {
             <div>
                 <button>Read</button>
                 <button>Favorite</button>
-                <button onClick={() => removeBook(id)}>Remove</button>
+                <button onClick={() => dispatch({type:'REMOVE_BOOK', id:id})}>Remove</button>
             </div>
             
         </div>
