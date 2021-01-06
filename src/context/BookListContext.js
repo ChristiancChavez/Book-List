@@ -9,20 +9,17 @@ const BookListContextProvider = (props) => {
     const [readBookList, setReadBookList] = useState([]);
     const [favoritesBookList, setFavoritesBookList] = useState([]);
 
-    // const addBook = (title, author) => {
-    //     setBookList([
-    //         ...bookList,
-    //         {book: title, author: author, id: uuid_v4()}
-    //     ]);
-    // };
+    const addToReadBookList = (book, author, id) => {
+        setReadBookList([...readBookList, {book:book, author:author, id:id}])
+    };
 
-    // const removeBook = (id) => {
-    //     setBookList(bookList.filter(book => book.id !== id))
-    // };
+    const addFavoriteBookList = (book, author, id) => {
+        setFavoritesBookList([...favoritesBookList, {book:book, author:author, id:id}])
+    };
     
 
     return (
-        <BookListContext.Provider value={{bookList, dispatch, readBookList, setReadBookList, favoritesBookList, setFavoritesBookList}}>
+        <BookListContext.Provider value={{bookList, dispatch, readBookList, addToReadBookList, favoritesBookList, addFavoriteBookList}}>
             {props.children}
         </BookListContext.Provider>
     );

@@ -12,7 +12,7 @@ const MyList = () => {
     return bookList.length ? (
         <div>
             {bookList.map(book => (
-                <BookCardList book={book.book} author={book.author} key={book.id} id={book.id} />
+                <BookCardList book={book.book} author={book.author} key={book.id} id={book.id} selected={true} />
             ))}
         </div>
     ) : 
