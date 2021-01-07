@@ -1,13 +1,17 @@
 //Components
-import Header from './Components/Header/Header';
-import Main from './Components/Main/Main';
+import Header from './Components/Header';
+import Main from './Components/Main';
 //Context
+import Animation from './Components/Animation';
 import BookListContextProvider  from './context/BookListContext';
+//Styles
+import './app.scss';
 
 function App() {
   return (
     <BookListContextProvider>
-      <div className="App">
+      <div className="app">
+        <Animation />
         <Header />
         <Main />
       </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 //Components
 import OptionNavBar from './../OptionNavBar/OptionNavBar';
+//Styles
+import './navBar.scss';
 //Dependencies
 const { v4: uuid_v4 } = require('uuid');
 
