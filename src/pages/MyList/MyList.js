@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
 //Components
 import BookCardList from './../../Components/BookCardList/BookCardList';
+import Error from './../../Components/Error/Error';
 //Context
 import { BookListContext } from './../../context/BookListContext';
+import './myList.scss';
+
 
 
 const MyList = () => {
@@ -10,16 +13,14 @@ const MyList = () => {
     const {bookList} = useContext(BookListContext);
 
     return bookList.length ? (
-        <div>
+        <div className="list">
             {bookList.map(book => (
                 <BookCardList book={book.book} author={book.author} key={book.id} id={book.id} selected={true} />
             ))}
         </div>
     ) : 
     (
-        <div>
-            <span>You haven't add books yet</span>
-        </div>
+        <Error message="You haven't add books yet" />
     )
 };
 

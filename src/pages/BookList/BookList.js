@@ -3,8 +3,16 @@ import React, { useState } from 'react';
 import axios from 'axios';
 //Components
 import BookCardList from './../../Components/BookCardList/BookCardList';
+import Error from './../../Components/Error/Error';
+//Styles
+import './bookList.scss';
+//Dependencies
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faAtlas } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const BookList = () => {
 
+    library.add(faAtlas);
     const [bookList, setBookList] = useState([]);
     const [query, setQuery] = useState('');
     const requestData = `https://www.googleapis.com/books/v1/volumes?q=${query}`;
@@ -16,20 +24,21 @@ const BookList = () => {
                     console.error(error);
                 });
                 setBookList(request.items);
-                console.log(request.items, 'hdffblfbhsfbh');
-     };
+    };
 
     return (
-        <div>
-            <input required name="search" value={query} placeholder="Search your next book"  onChange={(e) => setQuery(e.target.value)} type="text" />
-            <button onClick={fetchData}>+</button>
-            {bookList.length && bookList.map(book => (
-                <BookCardList book={book.volumeInfo.title} author={book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'No author'} id={book.id} key={book.id} />
-            ))}
+        <div className="book-list">
+            <input className="book-list__search" required name="search" value={query} placeholder="Book's keyword"  onChange={(e) => setQuery(e.target.value)} type="text" />
+            <button className="book-list__icon" onClick={fetchData}>
+                <FontAwesomeIcon icon={faAtlas} />
+            </button>
+            {bookList.length && <div className="book-list__books">
+                {bookList.map(book => (
+                    <BookCardList book={book.volumeInfo.title} author={book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'No author'} id={book.id} key={book.id} />
+                ))}
+            </div>}
             {!bookList.length && 
-                <div>
-                    <span>That keyword doesn't match with any book</span>
-                </div>
+                <Error message="That keyword doesn't match with any book" />
             }
         </div>
     );
