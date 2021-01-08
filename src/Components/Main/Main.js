@@ -7,7 +7,6 @@ import ReadBookList from './../../pages/ReadBookList';
 import Favorites from '../../pages/Favorites';
 //Dependencies
 import { Switch, Route } from "react-router-dom";
-
 const Main = () => (
     <div>
         <Switch>

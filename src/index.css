@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Yeon Sung', cursive;
-  background:rgba(0,212,255,1);
+  background: linear-gradient(180deg, rgba(0,212,255,1) 50%, rgb(1, 22, 117) 100%);
   background-repeat: no-repeat;
   min-height: 100vh;
 }
