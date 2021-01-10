@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 //Context
 import { BookListContext } from './../../context/BookListContext';
 //Style 
@@ -9,11 +9,24 @@ import { faBookDead, faBook, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const BookCardList = ({ book, author, id, selected }) => {
+    
 
     library.add(faBookDead, faBook, faStar);
     const { dispatch } = useContext(BookListContext);
-    const { addToReadBookList, addFavoriteBookList } = useContext(BookListContext);
+    const { addToReadBookList, addToFavoriteBookList } = useContext(BookListContext);
+    const [readIconStyle, setReadIconStyle] = useState(false);
+    const [favoritesIconStyle, setFavoritesIconStyle] = useState(false);
 
+    const setAddedReadBookList = (book, author, id) => {
+        addToReadBookList(book, author, id);
+        setReadIconStyle(true);
+    }
+
+    const setAddedFavoritesBookList = (book, author, id) => {
+        addToFavoriteBookList(book, author, id);
+        setFavoritesIconStyle(true);
+    }
+    
     return (
         <div className="card">
             <div className="card-book">
@@ -22,11 +35,11 @@ const BookCardList = ({ book, author, id, selected }) => {
             </div>
             {selected && 
                 <div className="card-interaction">
-                    <button className="card-interaction__icon" onClick={() => addToReadBookList(book, author, id)}>
-                        <FontAwesomeIcon icon={faBook} />
+                    <button className="card-interaction__icon" onClick={() => setAddedReadBookList(book, author, id)}>
+                        <FontAwesomeIcon icon={faBook} className={readIconStyle ? 'selected' : ''} />
                     </button>
-                    <button className="card-interaction__icon" onClick={() => addFavoriteBookList(book, author, id)}>
-                        <FontAwesomeIcon icon={faStar} />
+                    <button className="card-interaction__icon" onClick={() => setAddedFavoritesBookList(book, author, id)}>
+                        <FontAwesomeIcon icon={faStar} className={favoritesIconStyle ? 'selected' : ''} />
                     </button>
                     <button className="card-interaction__icon" onClick={() => dispatch({type:'REMOVE_BOOK', id:id})}>
                         <FontAwesomeIcon icon={faBookDead} />
