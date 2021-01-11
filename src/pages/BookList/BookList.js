@@ -28,17 +28,43 @@ const BookList = () => {
 
     return (
         <div className="book-list">
-            <input className="book-list__search" required name="search" value={query} placeholder="Book's keyword"  onChange={(e) => setQuery(e.target.value)} type="text" />
-            <button className="book-list__icon" onClick={fetchData}>
-                <FontAwesomeIcon icon={faAtlas} />
+            <input 
+                className="book-list__search" 
+                required 
+                name="search" 
+                value={query} 
+                placeholder="Book's keyword"  
+                onChange={(e) => setQuery(e.target.value)} type="text" 
+            />
+            <button 
+                className="book-list__icon" 
+                onClick={fetchData}
+            >
+                <FontAwesomeIcon icon={faAtlas} 
+            />
             </button>
-            {bookList.length && <div className="book-list__books">
-                {bookList.map(book => (
-                    <BookCardList book={book.volumeInfo.title} author={book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'No author'} id={book.id} key={book.id} />
-                ))}
-            </div>}
-            {!bookList.length && 
-                <Error message="That keyword doesn't match with any book" />
+            {bookList.length ? 
+                (
+                <div className="book-list__books">
+                    {bookList.map(book => (
+                        <BookCardList 
+                            book={book.volumeInfo.title} 
+                            author={book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'No author'} 
+                            id={book.id} 
+                            key={book.id} 
+                            readBook={true} 
+                            favoriteBook={true} 
+                            removeBook={false} 
+                            addBook={true}
+                        />
+                    ))}
+                </div>
+                ) :
+                (
+                    <Error 
+                        message="That keyword doesn't match with any book" 
+                    />
+                )
             }
         </div>
     );

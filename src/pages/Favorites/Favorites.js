@@ -13,12 +13,23 @@ const Favorites = () => {
     return favoritesBookList.length ? (
         <div className="favorites">
             {favoritesBookList.map(book => (
-                <BookCardList book={book.book} author={book.author} key={book.id} id={book.id} selected={false} />
+                <BookCardList 
+                    book={book.book} 
+                    author={book.author} 
+                    key={book.id} 
+                    id={book.id} 
+                    readBook={false} 
+                    favoriteBook={false} 
+                    removeBook={false}
+                    addBook={false}
+                />
             ))}
         </div>
     ) : 
     (
-        <Error message="You haven't add books yet" />
+        <Error 
+            message="You haven't add books yet" 
+        />
     )
 };
 

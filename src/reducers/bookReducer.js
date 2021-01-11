@@ -6,7 +6,7 @@ export const bookListReducer = (state, action) => {
         case 'ADD_BOOK':
             return [
                 ...state,
-               {
+            {
                 book: action.book.title,
                 author: action.book.author,
                 id: uuid_v4()
