@@ -6,7 +6,7 @@ import './bookCardList.scss';
 //Dependencies
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBookDead, faBook, faStar, faBookMedical } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const BookCardList = ({ book, author, id, readBook, favoriteBook, removeBook, addBook }) => {
     
@@ -28,9 +28,14 @@ const BookCardList = ({ book, author, id, readBook, favoriteBook, removeBook, ad
         addToFavoriteBookList(book, author, id);
         setFavoritesIconStyle(true);
     }
+
     const setAddedMyBookList = (book, author) => {
         dispatch({type:'ADD_BOOK',  book: {title:book, author} })
         setaddIconStyle(true);
+    }
+
+    const setRemovedMyBookList = (id) => {
+        dispatch({type:'REMOVE_BOOK', id:id})
     }
     
     return (
@@ -41,22 +46,26 @@ const BookCardList = ({ book, author, id, readBook, favoriteBook, removeBook, ad
             </div>
             <div className="card-interaction">
                 {readBook &&
+                    //<Button method={setAddedReadBookList} iconStyle={readIconStyle} icon={faBook} />
                     <button className="card-interaction__icon" onClick={() => setAddedReadBookList(book, author, id)}>
                         <FontAwesomeIcon icon={faBook} className={readIconStyle ? 'selected' : ''} />
                     </button>
                 }
                 {favoriteBook &&
+                    //<Button method={setAddedFavoritesBookList} iconStyle={favoritesIconStyle} icon={faStar} />
                     <button className="card-interaction__icon" onClick={() => setAddedFavoritesBookList(book, author, id)}>
                         <FontAwesomeIcon icon={faStar} className={favoritesIconStyle ? 'selected' : ''} />
                     </button>
                 }
                 {addBook &&
+                    //<Button method={setAddedMyBookList} iconStyle={addIconStyle} icon={faBookMedical} />
                     <button className="card-interaction__icon" onClick={() => setAddedMyBookList(book, author)}>
                         <FontAwesomeIcon icon={faBookMedical} className={addIconStyle ? 'selected' : ''} />
                     </button>
                 }
                 {removeBook &&
-                    <button className="card-interaction__icon" onClick={() => dispatch({type:'REMOVE_BOOK', id:id})}>
+                    //<Button method={setRemovedMyBookList} iconStyle={addIconStyle} icon={faBookDead} />
+                    <button className="card-interaction__icon" onClick={() => setRemovedMyBookList(id)}>
                         <FontAwesomeIcon icon={faBookDead} />
                     </button>
                 }
