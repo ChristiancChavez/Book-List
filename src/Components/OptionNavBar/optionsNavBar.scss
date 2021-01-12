@@ -10,7 +10,11 @@
     text-decoration: none;
     font-weight: bolder;
     &:hover {
-        background: rgba(0, 0, 0, 0.39);
+        background:rgba(2, 98, 153, 0.788);
+        color: white;
+    }
+    &:focus {
+        background: rgba(2, 98, 153, 0.788);
         color: white;
     }
 }

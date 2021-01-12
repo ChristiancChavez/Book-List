@@ -15,7 +15,16 @@ const MyList = () => {
     return bookList.length ? (
         <div className="list">
             {bookList.map(book => (
-                <BookCardList book={book.book} author={book.author} key={book.id} id={book.id} selected={true} />
+                <BookCardList 
+                    book={book.book} 
+                    author={book.author} 
+                    key={book.id} 
+                    id={book.id} 
+                    readBook={true} 
+                    favoriteBook={false} 
+                    removeBook={true}
+                    addBook={false}
+                />
             ))}
         </div>
     ) : 

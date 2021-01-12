@@ -9,11 +9,21 @@ import './readBookList.scss';
 
 
 const ReadBookList = () => {
+    
     const {readBookList} = useContext(BookListContext);
     return readBookList.length ? (
         <div className="read-list">
             {readBookList.map(book => (
-                <BookCardList book={book.book} author={book.author} key={book.id} id={book.id} selected={false} />
+                <BookCardList 
+                    book={book.book} 
+                    author={book.author} 
+                    key={book.id} 
+                    id={book.id} 
+                    readBook={false} 
+                    favoriteBook={true} 
+                    removeBook={false}
+                    addBook={false}
+                />
             ))}
         </div>
     ) : 
