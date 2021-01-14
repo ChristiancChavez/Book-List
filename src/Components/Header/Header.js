@@ -5,7 +5,10 @@ import NavBar from './../NavBar/NavBar';
 import './header.scss';
 const Header = () => (
     <div className="header">
-        <h1 className="header__title">
+        <h1 
+            className="header__title"
+            aria-label="This application's called BookList"    
+        >
             BOOKLIST
         </h1>
         <NavBar />

@@ -15,7 +15,11 @@ const OPTIONS_NAV = [
 ];
 
 const NavBar = () => (
-    <div className="navbar">
+    <div 
+        className="navbar"
+        aria-label="It's a navbar, when you can redirect to add new book, your own book list, 
+        list of added books, your own book list, your list of favorite books and searchin books"
+    >
         {OPTIONS_NAV.map(option => <OptionNavBar category={option.category} key={option.id} route={option.route} />)}
     </div>
 );

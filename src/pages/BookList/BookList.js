@@ -27,17 +27,22 @@ const BookList = () => {
     };
 
     return (
-        <div className="book-list">
+        <div 
+            className="book-list"
+            aria-label="You can search and looking for your favorites books or try someones news"
+        >
             <input 
                 className="book-list__search" 
                 required 
                 name="search" 
                 value={query} 
                 placeholder="Book's keyword"  
-                onChange={(e) => setQuery(e.target.value)} type="text" 
+                onChange={(e) => setQuery(e.target.value)} type="text"
+                aria-label="you can type the author, title or keyword of your desired book"
             />
             <button 
-                className="book-list__icon" 
+                className="book-list__icon"
+                aria-label="Press this button to start the searching"
                 onClick={fetchData}
             >
                 <FontAwesomeIcon icon={faAtlas} 
@@ -45,7 +50,10 @@ const BookList = () => {
             </button>
             {bookList.length ? 
                 (
-                <div className="book-list__books">
+                <div 
+                    className="book-list__books"
+                    aria-label="This are the results of your searching"
+                >
                     {bookList.map(book => (
                         <BookCardList 
                             book={book.volumeInfo.title} 

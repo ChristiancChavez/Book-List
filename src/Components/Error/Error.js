@@ -4,7 +4,10 @@ import './error.scss';
 
 const Error = ({ message }) => {
     return (
-        <div className="error">
+        <div 
+            className="error"
+            aria-label={message}
+        >
             <span>{message}</span>
         </div>
     );

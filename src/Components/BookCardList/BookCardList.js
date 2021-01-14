@@ -39,33 +39,52 @@ const BookCardList = ({ book, author, id, readBook, favoriteBook, removeBook, ad
     }
     
     return (
-        <div className="card">
-            <div className="card-book">
+        <div 
+            className="card"
+            aria-label="This is a list of added books"
+            aria-required="true"
+        >
+            <div 
+                className="card-book"
+                aria-label={`This card is a book, with a title ${book}, writer by ${author}`}
+                >
                 <h1 className="card-book__info">{book}</h1>
                 <h2 className="card-book__info">{author}</h2>
             </div>
             <div className="card-interaction">
                 {readBook &&
-                    //<Button method={setAddedReadBookList} iconStyle={readIconStyle} icon={faBook} />
-                    <button className="card-interaction__icon" onClick={() => setAddedReadBookList(book, author, id)}>
+                    <button 
+                        className="card-interaction__icon" 
+                        onClick={() => setAddedReadBookList(book, author, id)}
+                        aria-label={`If you click this icon you can add this book called ${book} to your Read book list`}
+                    >
                         <FontAwesomeIcon icon={faBook} className={readIconStyle ? 'selected' : ''} />
                     </button>
                 }
                 {favoriteBook &&
-                    //<Button method={setAddedFavoritesBookList} iconStyle={favoritesIconStyle} icon={faStar} />
-                    <button className="card-interaction__icon" onClick={() => setAddedFavoritesBookList(book, author, id)}>
+                    <button 
+                        className="card-interaction__icon" 
+                        onClick={() => setAddedFavoritesBookList(book, author, id)}
+                        aria-label={`If you click this icon you can add this book called ${book} to your Favorites book list`}
+                    >
                         <FontAwesomeIcon icon={faStar} className={favoritesIconStyle ? 'selected' : ''} />
                     </button>
                 }
                 {addBook &&
-                    //<Button method={setAddedMyBookList} iconStyle={addIconStyle} icon={faBookMedical} />
-                    <button className="card-interaction__icon" onClick={() => setAddedMyBookList(book, author)}>
+                    <button 
+                        className="card-interaction__icon" 
+                        onClick={() => setAddedMyBookList(book, author)}
+                        aria-label={`If you click this icon you can add this book called ${book} to your own book list`}
+                    >
                         <FontAwesomeIcon icon={faBookMedical} className={addIconStyle ? 'selected' : ''} />
                     </button>
                 }
                 {removeBook &&
-                    //<Button method={setRemovedMyBookList} iconStyle={addIconStyle} icon={faBookDead} />
-                    <button className="card-interaction__icon" onClick={() => setRemovedMyBookList(id)}>
+                    <button 
+                        className="card-interaction__icon" 
+                        onClick={() => setRemovedMyBookList(id)}
+                        aria-label={`If you click this icon you can remove this book called ${book} from your own book list`}
+                    >
                         <FontAwesomeIcon icon={faBookDead} />
                     </button>
                 }
