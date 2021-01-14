@@ -10,6 +10,7 @@ const OptionNavBar = ({ category, route }) => {
         <Link
             className="options"
             to={route}
+            aria-label={`If you click this button you can go to ${route}`}
         >
             {category}
         </Link>

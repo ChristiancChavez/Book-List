@@ -11,7 +11,10 @@ const Favorites = () => {
     const {favoritesBookList } = useContext(BookListContext);
 
     return favoritesBookList.length ? (
-        <div className="favorites">
+        <div 
+            className="favorites"
+            aria-label="This is your favorite book list, enjoy it"
+        >
             {favoritesBookList.map(book => (
                 <BookCardList 
                     book={book.book} 

@@ -1,4 +1,19 @@
 .search {
+    position: relative;
+    &-success {
+        position: absolute;
+        top: 95%;
+        left: 50%;
+        text-align: center;
+        background: rgb(255, 255, 255);
+        color: #4be1ff;
+        padding: 30px;
+        font-weight: bolder;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+        border-radius: 8px;
+        border: none;
+    }
     &-form {
         display: flex;
         flex-flow: column nowrap;

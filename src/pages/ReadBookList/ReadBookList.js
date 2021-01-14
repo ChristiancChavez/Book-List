@@ -12,7 +12,10 @@ const ReadBookList = () => {
     
     const {readBookList} = useContext(BookListContext);
     return readBookList.length ? (
-        <div className="read-list">
+        <div 
+            className="read-list"
+            aria-label="This is your read book list, remember it"    
+        >
             {readBookList.map(book => (
                 <BookCardList 
                     book={book.book} 
