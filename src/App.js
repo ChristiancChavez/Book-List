@@ -7,6 +7,7 @@ import BookListContextProvider  from './context/BookListContext';
 import './app.scss';
 
 function App() {
+  console.log('render App');
   return (
     <BookListContextProvider>
       <div 

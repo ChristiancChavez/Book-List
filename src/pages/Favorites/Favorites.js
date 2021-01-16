@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 //Context
 import { BookListContext } from './../../context/BookListContext';
 //Components
@@ -8,6 +8,9 @@ import Error from './../../Components/Error/Error';
 import './favorites.scss';
 
 const Favorites = () => {
+    useEffect(() => {
+        console.log('render Favorites');
+    })
     const {favoritesBookList } = useContext(BookListContext);
 
     return favoritesBookList.length ? (

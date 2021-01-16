@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 //Components 
 import Home from '../../pages/Home';
 import BookList from '../../pages/BookList';
@@ -7,16 +7,23 @@ import ReadBookList from './../../pages/ReadBookList';
 import Favorites from '../../pages/Favorites';
 //Dependencies
 import { Switch, Route } from "react-router-dom";
-const Main = () => (
-    <div>
-        <Switch>
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/bookList" component={BookList} />
-            <Route exact path="/myList" component={MyList} />
-            <Route exact path="/read" component={ReadBookList} />
-            <Route exact path="/favorites" component={Favorites} />
-        </Switch>
-    </div>
-);
+const Main = () => {
+
+    useEffect(() => {
+        console.log('render Main');
+    });
+
+    return (
+        <div>
+            <Switch>
+                <Route exact path="/home" component={Home} />
+                <Route exact path="/bookList" component={BookList} />
+                <Route exact path="/myList" component={MyList} />
+                <Route exact path="/read" component={ReadBookList} />
+                <Route exact path="/favorites" component={Favorites} />
+            </Switch>
+        </div>
+    )
+}
 
 export default Main;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 //Dependencies 
 import axios from 'axios';
 //Components
@@ -11,6 +11,9 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faAtlas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const BookList = () => {
+    useEffect(() => {
+        console.log('render BookList Google');
+    })
 
     library.add(faAtlas);
     const [bookList, setBookList] = useState([]);

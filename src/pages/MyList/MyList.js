@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 //Components
 import BookCardList from './../../Components/BookCardList/BookCardList';
 import Error from './../../Components/Error/Error';
@@ -9,6 +9,9 @@ import './myList.scss';
 
 
 const MyList = () => {
+    useEffect(() => {
+        console.log('render My List');
+    })
 
     const {bookList} = useContext(BookListContext);
 

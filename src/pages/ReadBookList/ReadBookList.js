@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 //Components
 import Error from './../../Components/Error/Error';
 import BookCardList from '../../Components/BookCardList/BookCardList';
@@ -9,6 +9,9 @@ import './readBookList.scss';
 
 
 const ReadBookList = () => {
+    useEffect(() => {
+        console.log('render Read');
+    })
     
     const {readBookList} = useContext(BookListContext);
     return readBookList.length ? (

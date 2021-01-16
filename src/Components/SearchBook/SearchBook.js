@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 //Context
 import { BookListContext } from '../../context/BookListContext';
 //Style
@@ -9,6 +9,10 @@ import { faBookMedical } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const SearchBook = () => {
+    useEffect(() => {
+        console.log('render Search');
+    })
+    
 
     library.add(faBookMedical);
     const [title, setTitle] = useState('');
